@@ -82,6 +82,14 @@
         <label class="secondary file-button">Restaurar copia<input id="restoreJson" type="file" accept="application/json,.json" /></label>
         <button id="installButton" class="secondary hidden">Instalar aplicación</button>
       </div>
+      <div class="section-title lists-heading"><div><p class="eyebrow">MIS LISTAS</p><h2>Editar listas</h2></div></div>
+      <div class="note list-note"><strong>Listas independientes</strong><p>Los cambios se guardan solamente en este teléfono y no afectan a otros usuarios.</p></div>
+      <div class="custom-lists">
+        <section class="list-card"><h3>Conceptos</h3><form class="add-list-form" data-list="conceptos"><input aria-label="Nuevo concepto" placeholder="Nuevo concepto" required /><button class="primary" type="submit">Agregar</button></form><div id="list-conceptos" class="chips"></div></section>
+        <section class="list-card"><h3>Personas o empresas</h3><form class="add-list-form" data-list="personas"><input aria-label="Nueva persona o empresa" placeholder="Nueva persona o empresa" required /><button class="primary" type="submit">Agregar</button></form><div id="list-personas" class="chips"></div></section>
+        <section class="list-card"><h3>Medios de pago</h3><form class="add-list-form" data-list="medios"><input aria-label="Nuevo medio de pago" placeholder="Nuevo medio de pago" required /><button class="primary" type="submit">Agregar</button></form><div id="list-medios" class="chips"></div></section>
+      </div>
+      <button id="resetLists" class="secondary reset-lists" type="button">Restablecer listas originales</button>
       <div class="note"><strong>Importante</strong><p>Los datos quedan guardados únicamente en este teléfono. Cree una copia de seguridad periódicamente.</p></div>
     </section>
   </main>
