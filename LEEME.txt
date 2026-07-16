@@ -1,0 +1,18 @@
+SIGEA CAMPO — MOVIMIENTOS
+
+Esta aplicación guarda los movimientos dentro del teléfono y funciona sin conexión después de instalarse.
+
+INSTALACIÓN EN ANDROID
+1. Abra la dirección publicada en Google Chrome.
+2. Toque el menú de tres puntos.
+3. Seleccione “Instalar aplicación” o “Agregar a pantalla principal”.
+4. Después podrá abrir SIGEA Campo sin internet.
+
+INSTALACIÓN EN IPHONE
+1. Abra la dirección publicada en Safari.
+2. Toque el botón Compartir.
+3. Seleccione “Agregar a inicio”.
+4. Después podrá abrir SIGEA Campo sin internet.
+
+RESPALDO
+En la sección Archivos puede exportar un CSV para Excel y crear una copia de seguridad. Los datos no se sincronizan automáticamente con el archivo Excel.

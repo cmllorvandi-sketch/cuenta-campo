@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#174d3a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>SIGEA Campo — Movimientos</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">SIGEA CAMPO</p>
+      <h1>Movimientos</h1>
+    </div>
+    <span id="offlineBadge" class="status">Sin conexión</span>
+  </header>
+
+  <main>
+    <section id="resumen" class="view active" aria-labelledby="tab-resumen">
+      <div class="hero">
+        <p>Resultado registrado</p>
+        <strong id="balanceTotal">$ 0</strong>
+        <span id="recordCount">0 movimientos guardados</span>
+      </div>
+      <div class="cards">
+        <article class="metric income"><span>Ingresos</span><strong id="incomeTotal">$ 0</strong></article>
+        <article class="metric expense"><span>Egresos</span><strong id="expenseTotal">$ 0</strong></article>
+        <article class="metric pending"><span>Pendientes</span><strong id="pendingTotal">$ 0</strong></article>
+      </div>
+      <div class="panel">
+        <div class="section-title"><h2>Últimos movimientos</h2><button class="link-button" data-go="lista">Ver todos</button></div>
+        <div id="recentList" class="movement-list"></div>
+      </div>
+    </section>
+
+    <section id="nuevo" class="view" aria-labelledby="tab-nuevo">
+      <div class="section-title"><div><p class="eyebrow">CARGA RÁPIDA</p><h2>Nuevo movimiento</h2></div></div>
+      <form id="movementForm" class="form-card">
+        <input type="hidden" id="editId" />
+        <label>Fecha<input id="fecha" type="date" required /></label>
+        <div class="two-cols">
+          <label>Tipo<select id="tipo" required><option>Ingreso</option><option selected>Egreso</option><option>Financiero</option><option>Saldo Inicial</option></select></label>
+          <label>Estado<select id="estado" required><option selected>Pagado</option><option>Pendiente</option><option>Parcial</option><option>Adelanto</option><option>Registrado</option></select></label>
+        </div>
+        <label>Actividad<select id="actividad" required></select></label>
+        <div class="two-cols">
+          <label>Rubro<select id="rubro" required></select></label>
+          <label>Concepto<input id="concepto" list="conceptos" placeholder="Ej.: Gasoil" required /></label>
+        </div>
+        <datalist id="conceptos"></datalist>
+        <label>Persona o empresa<input id="persona" list="personas" placeholder="Opcional" /></label>
+        <datalist id="personas"></datalist>
+        <div class="two-cols">
+          <label>Medio de pago<select id="medio"></select></label>
+          <label>Importe<input id="importe" type="number" inputmode="decimal" min="0" step="0.01" placeholder="0" required /></label>
+        </div>
+        <label>Observación<textarea id="observacion" rows="2" placeholder="Detalle opcional"></textarea></label>
+        <button class="primary" type="submit" id="saveButton">Guardar movimiento</button>
+        <button class="secondary hidden" type="button" id="cancelEdit">Cancelar edición</button>
+      </form>
+    </section>
+
+    <section id="lista" class="view" aria-labelledby="tab-lista">
+      <div class="section-title"><div><p class="eyebrow">HISTORIAL</p><h2>Todos los movimientos</h2></div></div>
+      <div class="filters">
+        <input id="search" type="search" placeholder="Buscar persona, concepto..." />
+        <select id="typeFilter"><option value="">Todos los tipos</option><option>Ingreso</option><option>Egreso</option><option>Financiero</option><option>Saldo Inicial</option></select>
+      </div>
+      <div id="allList" class="movement-list"></div>
+    </section>
+
+    <section id="datos" class="view" aria-labelledby="tab-datos">
+      <div class="section-title"><div><p class="eyebrow">ARCHIVOS</p><h2>Respaldo y Excel</h2></div></div>
+      <div class="panel actions">
+        <button id="exportCsv" class="primary">Exportar para Excel (.csv)</button>
+        <button id="backupJson" class="secondary">Crear copia de seguridad</button>
+        <label class="secondary file-button">Restaurar copia<input id="restoreJson" type="file" accept="application/json,.json" /></label>
+        <button id="installButton" class="secondary hidden">Instalar aplicación</button>
+      </div>
+      <div class="note"><strong>Importante</strong><p>Los datos quedan guardados únicamente en este teléfono. Cree una copia de seguridad periódicamente.</p></div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Navegación principal">
+    <button id="tab-resumen" class="active" data-view="resumen"><span>⌂</span>Resumen</button>
+    <button id="tab-nuevo" data-view="nuevo"><span>＋</span>Cargar</button>
+    <button id="tab-lista" data-view="lista"><span>☷</span>Movimientos</button>
+    <button id="tab-datos" data-view="datos"><span>⇩</span>Archivos</button>
+  </nav>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
